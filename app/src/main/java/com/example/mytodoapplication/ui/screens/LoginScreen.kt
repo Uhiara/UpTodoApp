@@ -1,9 +1,7 @@
 package com.example.mytodoapplication.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -22,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
@@ -43,7 +39,6 @@ import com.example.mytodoapplication.ui.components.PasswordTextFieldComponent
 import com.example.mytodoapplication.ui.components.SocialMediaLogin
 import com.example.mytodoapplication.ui.components.TextComponent
 import com.example.mytodoapplication.ui.components.TextFieldComponent
-import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(
@@ -53,8 +48,6 @@ fun LoginScreen(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        val scope = rememberCoroutineScope()
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -65,9 +58,7 @@ fun LoginScreen(
 
             TextButton(
                 onClick = {
-                    scope.launch {
                         navController.navigate(Routes.ON_BOARDING_SCREEN_4)
-                    }
                 }
             ) {
                 Image(
@@ -126,9 +117,7 @@ fun LoginScreen(
 
             ButtonComponent(text = "Login",
                 onClick = {
-                    scope.launch {
                         //TODO: Navigate to Login Screen
-                    }
                 }
             )
 
@@ -159,17 +148,13 @@ fun LoginScreen(
             Spacer(modifier = Modifier.weight(0.35f))
 
             SocialMediaLogin(icon = R.drawable.google_logo, text = "Login with Google") {
-                scope.launch {
-                    //TODO: Navigate to Login Screen
-                }
+
             }
 
             Spacer(modifier = Modifier.weight(0.2f))
 
             SocialMediaLogin(icon = R.drawable.apple, text = "Login with Apple") {
-                scope.launch {
-                    //TODO: Navigate to Login Screen
-                }
+
             }
 
             Spacer(modifier = Modifier.weight(0.5f))

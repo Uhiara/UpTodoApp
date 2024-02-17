@@ -60,21 +60,18 @@ fun OnBoardingScreen1(
             }
             val buttonState = remember {
                 derivedStateOf {
-                    if (pagerState.currentPage == 0) {
-                        listOf("", "Next")
-                    } else listOf("", "")
+                    when (pagerState.currentPage) {
+                        0 -> listOf("", "Next")
+                        else -> listOf("", "")
+                    }
                 }
             }
 
-            val skipScope = rememberCoroutineScope()
-
             CommonTextButton(text = "Skip",
                 onClick = {
-                    skipScope.launch {
-                        navController.navigate(Routes.ON_BOARDING_SCREEN_4)
-                    }
-                })
-
+                    navController.navigate(Routes.ON_BOARDING_SCREEN_4)
+                }
+            )
 
             ImageComponent(imageValue = R.drawable.onboarding1)
 
@@ -120,14 +117,12 @@ fun OnBoardingScreen1(
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-                Row(verticalAlignment = Alignment.CenterVertically) {
-
-                    val scope = rememberCoroutineScope()
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     CommonTextButton(text = buttonState.value[0],
                         onClick = {
-                            scope.launch {
-                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                            }
+
                         }
                     )
 
@@ -135,13 +130,7 @@ fun OnBoardingScreen1(
 
                     CommonButton(text = buttonState.value[1],
                         onClick = {
-                            scope.launch {
-                                if (pagerState.currentPage == 3) {
-                                    //TODO: Navigate to Home Screen
-                                } else {
-                                    navController.navigate(Routes.ON_BOARDING_SCREEN_2)
-                                }
-                            }
+                            navController.navigate(Routes.ON_BOARDING_SCREEN_2)
                         }
                     )
                 }

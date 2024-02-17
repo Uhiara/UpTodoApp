@@ -66,13 +66,9 @@ fun OnBoardingScreen3(
                 }
             }
 
-            val skipScope = rememberCoroutineScope()
-
             CommonTextButton(text = "Skip",
                 onClick = {
-                    skipScope.launch {
-                        navController.navigate(Routes.ON_BOARDING_SCREEN_4)
-                    }
+                    navController.navigate(Routes.ON_BOARDING_SCREEN_4)
                 }
             )
 
@@ -119,16 +115,12 @@ fun OnBoardingScreen3(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-
-                    val scope = rememberCoroutineScope()
-
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     CommonTextButton(text = buttonState.value[0],
                         onClick = {
-                            scope.launch {
-                                navController.navigate(Routes.ON_BOARDING_SCREEN_2)
-                            }
+                            navController.navigate(Routes.ON_BOARDING_SCREEN_2)
                         }
                     )
 
@@ -136,9 +128,7 @@ fun OnBoardingScreen3(
 
                     CommonButton(text = buttonState.value[1],
                         onClick = {
-                            scope.launch {
-                                navController.navigate(Routes.ON_BOARDING_SCREEN_4)
-                            }
+                            navController.navigate(Routes.ON_BOARDING_SCREEN_4)
                         }
                     )
                 }

@@ -41,8 +41,6 @@ fun OnBoardingScreen4(
         modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        val scope = rememberCoroutineScope()
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -53,9 +51,7 @@ fun OnBoardingScreen4(
 
             TextButton(
                 onClick = {
-                    scope.launch {
-                        navController.navigate(Routes.ON_BOARDING_SCREEN_3)
-                    }
+                    navController.navigate(Routes.ON_BOARDING_SCREEN_3)
                 }
             ) {
                 Image(
@@ -94,10 +90,7 @@ fun OnBoardingScreen4(
 
                 ButtonComponent(text = "LOGIN",
                     onClick = {
-                        scope.launch {
-                            navController.navigate(Routes.LOGIN_SCREEN)
-                            //TODO: Navigate to Login Screen
-                        }
+                        navController.navigate(Routes.LOGIN_SCREEN)
                     }
                 )
 
@@ -105,9 +98,7 @@ fun OnBoardingScreen4(
 
                 TextButtonComponent(text = "CREATE ACCOUNT",
                     onClick = {
-                        scope.launch {
-                            //TODO: Navigate to Create Account Screen
-                        }
+                        //TODO: Navigate to Create Account Screen
                     }
                 )
             }
