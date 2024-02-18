@@ -11,12 +11,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -40,8 +40,9 @@ import com.example.mytodoapplication.ui.components.SocialMediaLogin
 import com.example.mytodoapplication.ui.components.TextComponent
 import com.example.mytodoapplication.ui.components.TextFieldComponent
 
+
 @Composable
-fun LoginScreen(
+fun RegistrationScreen(
     navController: NavHostController,
 ) {
     Surface(
@@ -58,7 +59,7 @@ fun LoginScreen(
 
             TextButton(
                 onClick = {
-                        navController.navigate(Routes.ON_BOARDING_SCREEN_4)
+                    navController.navigate(Routes.ON_BOARDING_SCREEN_4)
                 }
             ) {
                 Image(
@@ -71,7 +72,7 @@ fun LoginScreen(
 
             TextComponent(
                 modifier = Modifier.fillMaxWidth(),
-                textValue = "Login",
+                textValue = "Register",
                 textSize = 32.sp,
                 fontWeight = FontWeight(700),
                 colorValue = colorResource(id = R.color.text_medium),
@@ -113,11 +114,18 @@ fun LoginScreen(
                 labelValue = "Password"
             )
 
+            Spacer(modifier = Modifier.weight(0.3f))
+
+            PasswordTextFieldComponent(
+                modifier = Modifier.fillMaxWidth(),
+                labelValue = "Confirm Password"
+            )
+
             Spacer(modifier = Modifier.weight(0.65f))
 
-            ButtonComponent(text = "Login",
+            ButtonComponent(text = "Register",
                 onClick = {
-                        //TODO: Navigate to Login Screen
+                    //TODO: Navigate to Login Screen
                 }
             )
 
@@ -128,32 +136,34 @@ fun LoginScreen(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Box(
-                    modifier = Modifier
-                        .weight(0.4f)
-                        .size(1.dp)
-                        .border(1.dp, color = colorResource(id = R.color.text_medium)),
+
+                Divider(
+                    color = colorResource(id = R.color.text_medium),
+                    thickness = 1.dp,
+                    modifier = Modifier.weight(0.5f)
                 )
 
-                Text(text = "or")
+                Text(text = "or", modifier = Modifier.padding(start = 1.dp, end = 1.dp))
 
-                Box(
-                    modifier = Modifier
-                        .weight(0.4f)
-                        .size(1.dp)
-                        .border(1.dp, color = colorResource(id = R.color.text_medium)),
+                Divider(
+                    color = colorResource(id = R.color.text_medium),
+                    thickness = 1.dp,
+                    modifier = Modifier.weight(0.5f)
                 )
             }
 
             Spacer(modifier = Modifier.weight(0.35f))
 
-            SocialMediaLogin(icon = R.drawable.google_logo, text = "Login with Google", onClick = {
-                navController.navigate(Routes.ON_BOARDING_SCREEN_4)
-            })
+            SocialMediaLogin(
+                icon = R.drawable.google_logo,
+                text = "Register with Google",
+                onClick = {
+                    navController.navigate(Routes.ON_BOARDING_SCREEN_4)
+                })
 
             Spacer(modifier = Modifier.weight(0.2f))
 
-            SocialMediaLogin(icon = R.drawable.apple, text = "Login with Apple") {
+            SocialMediaLogin(icon = R.drawable.apple, text = "Register with Apple") {
                 navController.navigate(Routes.ON_BOARDING_SCREEN_4)
             }
 
@@ -166,14 +176,14 @@ fun LoginScreen(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = "Don't have account?",
+                    text = "Already have an account?",
                     color = colorResource(id = R.color.text_medium),
                     fontSize = 14.sp,
                 )
 
-                TextButton(onClick = { navController.navigate(Routes.REGISTRATION_SCREEN) }) {
+                TextButton(onClick = { navController.navigate(Routes.LOGIN_SCREEN) }) {
                     Text(
-                        text = "Register",
+                        text = "Login",
                         color = MaterialTheme.colorScheme.primary,
                         fontSize = 14.sp,
                     )
@@ -187,6 +197,6 @@ fun LoginScreen(
 
 @Preview
 @Composable
-fun LoginScreenPreview() {
-    LoginScreen(rememberNavController())
+fun RegistrationScreenPreview() {
+    RegistrationScreen(rememberNavController())
 }
