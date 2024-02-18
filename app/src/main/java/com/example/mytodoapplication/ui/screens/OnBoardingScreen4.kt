@@ -98,7 +98,7 @@ fun OnBoardingScreen4(
 
                 TextButtonComponent(text = "CREATE ACCOUNT",
                     onClick = {
-                        //TODO: Navigate to Create Account Screen
+                        navController.navigate(Routes.REGISTRATION_SCREEN)
                     }
                 )
             }

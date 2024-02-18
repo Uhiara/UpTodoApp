@@ -31,5 +31,9 @@ fun TodoNavGraph() {
         composable(Routes.LOGIN_SCREEN) {
             LoginScreen(navController)
         }
+
+        composable(Routes.REGISTRATION_SCREEN) {
+            RegistrationScreen(navController)
+        }
     }
 }
